@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: myFont;
+            src: url(font/PFDINTextCondPro-Light-subset.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "myFont", sans-serif;
+        }
+
+        .title {
+            display: flex;
+            padding-bottom: 10px;
+        }
+
+        .title-h {
+            letter-spacing: 1px;
+            color: rgb(87, 87, 87);
+            border-bottom: 4px solid rgb(231, 231, 0);
+        }
+
+
+
+        body {
+            height: 100%;
+            width: 100%;
+            padding: 3% 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        .outer {
+            height: 100%;
+            width: 80%;
+        }
+
+
+        .container {
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr .5fr 1fr .5fr 1fr;
+            grid-template-rows: repeat(3, 25vh);
+            gap: 10px;
+        }
+
+        .box-1 {
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .box-3 {
+
+            grid-column-start: 4;
+            grid-column-end: 6;
+        }
+
+        .box-4 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+
+        .box-7 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+
+        .box-8 {
+            grid-column-start: 4;
+            grid-column-end: 6;
+        }
+
+        [class*="box"] {
+            display: flex;
+            align-items: end;
+            justify-content: start;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        [class*="box"] p {
+            z-index: 999;
+            padding: 10px;
+        }
+
+
+        [class*="box"]::before {
+            border-radius: 5px;
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.932));
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="title">
+            <h1 class="title-h">SHOP BY CATEGORIES</h1>
+        </div>
+        <div class="container">
+            <div class="box-1" style="background-image: url(img/Rectangle4137.png); ">
+                <p>BATHROBES</p>
+            </div>
+            <div class="box-2" style="background-image: url(img/Rectangle4138.png);">
+                <p>RUGS
+                </p>
+            </div>
+            <div class="box-3" style="background-image: url(img/Rectangle4139.png);">
+                <p>BATHMATS</p>
+            </div>
+            <div class="box-4" style="background-image: url(img/Rectangle4140.png);">
+                <p>BEDSHEETS</p>
+            </div>
+            <div class="box-5" style="background-image: url(img/Rectangle4141.png);">
+                <p>PILLOWS</p>
+            </div>
+            <div class="box-6" style="background-image: url(img/Rectangle4144.png);">
+                <p>BASKET</p>
+            </div>
+            <div class="box-7" style="background-image: url(img/Rectangle4142.png);">
+                <p>BLANKETS</p>
+            </div>
+            <div class="box-8" style="background-image: url(img/Rectangle4143.png);">
+                <p>TOWELS</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
