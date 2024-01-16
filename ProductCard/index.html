@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 98vh;
+        width: 23em;
+        /* background: rgb(135, 118, 151); */
+        padding: 1.5em;
+        border: .1px solid rgba(128, 128, 128, 0.219);
+        border-radius: 8px;
+        box-shadow: 0px 0px 20px .5px rgb(48, 48, 48, 0.4);
+    }
+
+    .img {
+        height: 60vh;
+        width: 100%;
+        background: url(./image/Screenshot\ 2024-01-16\ 120525.png);
+        border-radius: 8px;
+        transition: .25s ease-in-out;
+    }
+
+    .img:hover {
+        background: url(./image/Screenshot\ 2024-01-16\ 120558.png);
+    }
+
+    .name p,
+    .price {
+        font-size: large;
+    }
+
+    .price {
+        color: rgb(59, 59, 59);
+    }
+
+    select {
+        font-size: large;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        border: 1px solid gray;
+        border-radius: 8px;
+    }
+
+    select:focus {
+        outline: none;
+    }
+
+
+    button {
+        position: relative;
+        color: rgb(48, 48, 48);
+        background-color: #d6b79f;
+        font-size: large;
+        width: 100%;
+        padding: 8px 0;
+        cursor: pointer;
+        outline: none;
+        border-radius: 8px;
+        border: .11em solid rgba(128, 128, 128, 0.548);
+        transition: 0.5s;
+        z-index: 1;
+    }
+
+    button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+        transform: scaleX(1);
+    }
+
+    button:hover::before {
+        transform-origin: right;
+        transition: transform 0.5s ease;
+        transform: scaleX(0);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="img">
+
+        </div>
+        <div class="name">
+            <p>Jaipur Slik Bedsheet</p>
+        </div>
+        <p class="price">
+            From Rs. 1,450
+        </p>
+        <select name="varient" id="varient class=" varient" title="varient">
+            <option value=" 5 Feet/ Loops/ No - Rs.1,450">5 Feet/ Loops/ No - Rs.1,450</option>
+            <option value="5 Feet/ Loops/ No - Rs.1,450">5 Feet/ Loops/ No - Rs.1,450</option>
+            <option value="5 Feet/ Loops/ No - Rs.1,450">5 Feet/ Loops/ No - Rs.1,450</option>
+            <option value="5 Feet/ Loops/ No - Rs.1,450">5 Feet/ Loops/ No - Rs.1,450</option>
+            <option value="5 Feet/ Loops/ No - Rs.1,450">5 Feet/ Loops/ No - Rs.1,450</option>
+        </select>
+        <button class="add-to-cart">
+            ADD TO CART
+        </button>
+    </div>
+</body>
+
+</html>

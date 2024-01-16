@@ -11,6 +11,7 @@ const confirmPassword = document.getElementById("confirmPassword");
 const dateOfBirth = document.getElementById("dateOfBirth");
 const country = document.getElementById("country");
 const terms = document.getElementById("terms");
+const gender = document.querySelector('input[name="gender"]:checked')
 
 // Get the error elements
 const usernameError = document.getElementById("usernameError");
@@ -98,6 +99,11 @@ const termsError = document.getElementById("termsError");
 //   return isValid;
 // }
 
+let date = new Date().toISOString().split('T')[0];
+
+dateOfBirth.setAttribute("max", `${date}`)
+
+
 
 
 
@@ -111,11 +117,15 @@ username.addEventListener("input", (e) => {
         err_succ.classList.remove("error")
         err_succ.classList.add("success-msg")
 
+        document.querySelector('i[data-flag="username-flag"]').classList.remove("bx-error-circle")
+        document.querySelector('i[data-flag="username-flag"]').classList.add("bx-check")
     } else {
         e.target.classList.remove("success")
         e.target.classList.add("mr-input")
         err_succ.classList.add("error")
         err_succ.classList.remove("success-msg")
+        document.querySelector('i[data-flag="username-flag"]').classList.remove("bx-check")
+        document.querySelector('i[data-flag="username-flag"]').classList.add("bx-error-circle")
     }
 })
 
@@ -130,12 +140,16 @@ email.addEventListener("input", (e) => {
         e.target.classList.add("success")
         err_succ.classList.remove("error")
         err_succ.classList.add("success-msg")
+        document.querySelector('i[data-flag="email-flag"]').classList.remove("bx-error-circle")
+        document.querySelector('i[data-flag="email-flag"]').classList.add("bx-check")
 
     } else {
         e.target.classList.remove("success")
         e.target.classList.add("mr-input")
         err_succ.classList.add("error")
         err_succ.classList.remove("success-msg")
+        document.querySelector('i[data-flag="email-flag"]').classList.remove("bx-check")
+        document.querySelector('i[data-flag="email-flag"]').classList.add("bx-error-circle")
     }
 })
 
@@ -195,27 +209,34 @@ password.addEventListener("input", (e) => {
     }
 
 
-    if (lowerCaseRex && upperCaseRex && eightCharRex && specialChar) {
+    if (lowerCaseRex && upperCaseRex && eightCharRex && specialChar && numberRex) {
         console.log("match")
         e.target.classList.remove("mr-input")
         e.target.classList.add("success")
         err_succ.classList.remove("error")
         err_succ.classList.add("success-msg")
+        document.querySelector('i[data-flag="pass-flag"]').classList.remove("bx-error-circle")
+        document.querySelector('i[data-flag="pass-flag"]').classList.add("bx-check")
 
     } else {
         e.target.classList.remove("success")
         e.target.classList.add("mr-input")
         err_succ.classList.add("error")
         err_succ.classList.remove("success-msg")
+        document.querySelector('i[data-flag="pass-flag"]').classList.remove("bx-check")
+        document.querySelector('i[data-flag="pass-flag"]').classList.add("bx-error-circle")
     }
 })
 
 dateOfBirth.addEventListener('change', function (e) {
     console.log(e.target.value)
-    let today = today()
+    let today = new Date();
     let dob = new Date(e.target.value)
+    const oneDay = 24 * 60 * 60 * 1000;
 
-    let dateDiff = dob.getDate() - today.getDate();
+    let dateDiff = Math.round(Math.abs((today - dob) / oneDay) * 365);
+    console.log(dateDiff)
+
 })
 
 
@@ -251,26 +272,11 @@ document.querySelector("#myForm").addEventListener("submit", function (e) {
     const str = `<div>
     <h2>Username : ${username.value}</h2>
     <h2>Email : ${email.value}</h2>
-    <h2>Email : ${password.value}</h2>
+    <h2>Password : ${password.value}</h2>
     <h2>DOB : ${dateOfBirth.value}</h2>
     <h2>Country : ${country.value}</h2>
+    <h2>Gender : ${gender.value}</h2>
     </div>`
-    document.querySelector(".data").style.display = "block"
+    document.querySelector(".data").style.display = "flex"
     document.querySelector(".data").innerHTML = str
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

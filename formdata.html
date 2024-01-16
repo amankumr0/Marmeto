@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="myForm" id="myEle">
+        <input type="text" name="text" id="text" placeholder="Name">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="submit" value="Button">
+    </form>
+    <div class="msg"></div>
+    <script>
+
+        myEle.addEventListener('submit', (w) => {
+
+            w.preventDefault()
+            let data = new FormData(w.currentTarget)
+            console.log([...data.entries()])
+            for ([key, value] of data.entries()) {
+                console.log(`${key} : ${value}`)
+            }
+        })
+    </script>
+</body>
+
+</html>

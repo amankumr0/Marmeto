@@ -136,8 +136,11 @@ button:hover {
 
 .data {
     display: none;
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px;
+}
+
+input[type="radio"]+label {
+    margin-right: 30px;
 }
